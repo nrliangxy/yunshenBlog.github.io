@@ -4,20 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>我的第一篇博客 | 只在此山中，云深不知处</title>
+  <title>spark在standalone模式下，FIFO和FAIR调度模式的对象分析 | 只在此山中，云深不知处</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="这是我的第一篇 Hexo 博客文章！欢迎阅读。">
+  <meta name="description" content="&emsp;&emsp; 一，结论 spark集群在standalone模式下，调度模式FIFO和FAIR针对的调度对象是单个应用内的所有的Schedulable实例，不会对spark集群里面不同的应用app产生调度作用 spark集群在standalone模式下，不同应用app的调度默认为FIFO模式调度，而且不支持修改">
 <meta property="og:type" content="article">
-<meta property="og:title" content="我的第一篇博客">
+<meta property="og:title" content="spark在standalone模式下，FIFO和FAIR调度模式的对象分析">
 <meta property="og:url" content="https://nrliangxy.github.io/yunshenBlog.github.io/2025/02/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="只在此山中，云深不知处">
-<meta property="og:description" content="这是我的第一篇 Hexo 博客文章！欢迎阅读。">
+<meta property="og:description" content="&emsp;&emsp; 一，结论 spark集群在standalone模式下，调度模式FIFO和FAIR针对的调度对象是单个应用内的所有的Schedulable实例，不会对spark集群里面不同的应用app产生调度作用 spark集群在standalone模式下，不同应用app的调度默认为FIFO模式调度，而且不支持修改">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-02-07T23:57:10.000Z">
-<meta property="article:modified_time" content="2025-02-08T00:07:46.534Z">
+<meta property="article:modified_time" content="2025-02-08T14:31:09.707Z">
 <meta property="article:author" content="John Doe">
 <meta property="article:tag" content="spark">
 <meta property="article:tag" content="技术">
+<meta property="article:tag" content="standalone">
+<meta property="article:tag" content="调度模式">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/yunshenBlog.github.io/atom.xml" title="只在此山中，云深不知处" type="application/atom+xml">
@@ -87,7 +89,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      我的第一篇博客
+      spark在standalone模式下，FIFO和FAIR调度模式的对象分析
     </h1>
   
 
@@ -95,16 +97,20 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>这是我的第一篇 Hexo 博客文章！欢迎阅读。</p>
+        <p>&emsp;&emsp;</p>
+<h2 id="一，结论"><a href="#一，结论" class="headerlink" title="一，结论"></a>一，结论</h2><ul>
+<li>spark集群在standalone模式下，调度模式FIFO和FAIR针对的调度对象是单个应用内的所有的Schedulable实例，不会对spark集群里面不同的应用app产生调度作用</li>
+<li>spark集群在standalone模式下，不同应用app的调度默认为FIFO模式调度，而且不支持修改</li>
+</ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://nrliangxy.github.io/yunshenBlog.github.io/2025/02/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="cm6vrnau80001y0mff3qzfk3y" data-title="我的第一篇博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://nrliangxy.github.io/yunshenBlog.github.io/2025/02/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/" data-id="cm6vrnau80001y0mff3qzfk3y" data-title="spark在standalone模式下，FIFO和FAIR调度模式的对象分析" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yunshenBlog.github.io/tags/spark/" rel="tag">spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yunshenBlog.github.io/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yunshenBlog.github.io/tags/spark/" rel="tag">spark</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yunshenBlog.github.io/tags/standalone/" rel="tag">standalone</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yunshenBlog.github.io/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/yunshenBlog.github.io/tags/%E8%B0%83%E5%BA%A6%E6%A8%A1%E5%BC%8F/" rel="tag">调度模式</a></li></ul>
 
     </footer>
   </div>
@@ -135,7 +141,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/yunshenBlog.github.io/tags/spark/" rel="tag">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yunshenBlog.github.io/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/yunshenBlog.github.io/tags/spark/" rel="tag">spark</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yunshenBlog.github.io/tags/standalone/" rel="tag">standalone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yunshenBlog.github.io/tags/%E6%8A%80%E6%9C%AF/" rel="tag">技术</a></li><li class="tag-list-item"><a class="tag-list-link" href="/yunshenBlog.github.io/tags/%E8%B0%83%E5%BA%A6%E6%A8%A1%E5%BC%8F/" rel="tag">调度模式</a></li></ul>
     </div>
   </div>
 
@@ -145,7 +151,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/yunshenBlog.github.io/tags/spark/" style="font-size: 10px;">spark</a> <a href="/yunshenBlog.github.io/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a>
+      <a href="/yunshenBlog.github.io/tags/spark/" style="font-size: 10px;">spark</a> <a href="/yunshenBlog.github.io/tags/standalone/" style="font-size: 10px;">standalone</a> <a href="/yunshenBlog.github.io/tags/%E6%8A%80%E6%9C%AF/" style="font-size: 10px;">技术</a> <a href="/yunshenBlog.github.io/tags/%E8%B0%83%E5%BA%A6%E6%A8%A1%E5%BC%8F/" style="font-size: 10px;">调度模式</a>
     </div>
   </div>
 
@@ -167,7 +173,7 @@
       <ul>
         
           <li>
-            <a href="/yunshenBlog.github.io/2025/02/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">我的第一篇博客</a>
+            <a href="/yunshenBlog.github.io/2025/02/08/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">spark在standalone模式下，FIFO和FAIR调度模式的对象分析</a>
           </li>
         
           <li>
